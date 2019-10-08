@@ -1,38 +1,38 @@
 var mouseDown = false;
 
-window.addEventListener("load", event => {
+window.addEventListener("load", event => {  // Sert a charger le main
 	console.log("loaded");
 	main();
 });
 
-//Dessine un rectangle
-const drawRect = () => {
 
-	var div = document.createElement('div');
-	document.body.append(div);
+const drawRect = () => { //Dessine un rectangle
 
-	for(var i = 1 ; i < 11; i++){
+	var div = document.createElement('div'); // Crée une div
+	document.body.append(div); // Lie la div au body
 
-	var canvas = document.createElement('canvas');
-	(div).appendChild(canvas);
+	for(var i = 1 ; i < 11; i++){ // Boucle pour afficher les 11 éléments
 
-	canvas.id = i;
-	var context = canvas.getContext('2d');
+	var canvas = document.createElement('canvas'); // Crée un canvas
+	(div).appendChild(canvas); // Lie le canvas à la div
 
-	canvas.style.marginLeft = 50 + 'px';
-	canvas.style.marginRight = 300 + 'px';
-	context.beginPath();
-	context.fillStyle = "#399E";
-	context.fill();
-	context.fillRect(25, 25, 100, 100);
+	canvas.id = i; // Donne un id a chaque balise canvas
+	var context = canvas.getContext('2d'); // Récuperer le context du dessin en 2d
+
+	canvas.style.marginLeft = 50 + 'px'; // Affecte une margin aux canvas
+	canvas.style.marginRight = 300 + 'px'; // Affecte une margin aux canvas
+	context.beginPath(); // Affecte une margin aux canvas
+	context.fillStyle = "#399E";  // Remplis le canvas d'une couleur
+	context.fill(); //
+	context.fillRect(25, 25, 100, 100); // x, y , ., .
 	}
 
 }
 
-const clickRect = () => {
+const clickRect = () => { // Cliquer sur le rectangle
 
 	let rect = document.getElementById('3');
-	if( !mouseDown ) { return; }
+	if( !mouseDown ) { return; } // Si il n'est pas cliquer on sort sinon on est bon
 
 	if (event.clientY > 550){
 		rect.style.marginTop = console.log(event.clientY) + 20 + 'px';
@@ -56,6 +56,6 @@ const main = () => {
 }
 
 
-window.addEventListener('mousemove', clickRect );
-window.addEventListener('mousedown', () => { mouseDown = true; });
-window.addEventListener('mouseup', () => { mouseDown = false; });
+window.addEventListener('mousedown', () => { mouseDown = true; }); // L'événement à écouter et quand le clique (gauche) est enfoncer pour que le mouseDown prenne la valeur true
+window.addEventListener('mousemove', clickRect ); // On dis a l'écran d'écouter l'événement "mouvement de la souris" afin qu'il execute la fonction clickRect
+window.addEventListener('mouseup', () => { mouseDown = false; }); // l'événement à écouter par l'écran est le clique (gauche) relacher pour que mouseDown prenne la valeur false
